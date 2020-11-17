@@ -36,12 +36,29 @@ public class Main {
         System.out.print("Enter quantity => ");
         quantity = sc.nextLine();
         System.out.print("Enter price => ");
-        price = sc.nextDouble();
+        price = getPrice();
         res = calTax(price,type);
 
         String s1 = String.format("Item name => %s \nPrice=> %.2f \nTax => %.2f \nOverall Effective Cost => %.2f",name,price,res[0],res[1]);
         System.out.println(s1);
 
+    }
+
+    private static double getPrice() {
+        double price=0;
+        boolean ok = false;
+
+        while(!ok){
+            try{
+                Scanner sc = new Scanner(System.in);
+                price = sc.nextDouble();
+                ok = true;
+//                return price;
+            }catch (InputMismatchException e){
+                System.out.println("Please enter a numeric value");
+            }
+        }
+        return price;
     }
 
     private static String enterType() {
@@ -70,7 +87,7 @@ public class Main {
             tax = rawTax;
             effectiveCost = price+tax;
         } else if(type.equals("Manufactured")){
-            tax = rawTax+2*((price+rawTax)/100);
+            tax = manTax;
             effectiveCost = price+tax;
         }else if(type.equals("Imported")){
             effectiveCost= price+impTax;
