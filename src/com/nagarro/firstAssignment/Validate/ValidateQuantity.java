@@ -3,15 +3,15 @@ package com.nagarro.firstAssignment.Validate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ValidatePrice {
-    public static double validatePrice() {
-        double price=0;
+public class ValidateQuantity {
+    public static int validateQuantity(){
+        int quantity=0;
         boolean isOk = false;
         while(!isOk) {
             try {
                 Scanner sc = new Scanner(System.in);
-                price = sc.nextDouble();
-                if(price<=0){
+                quantity = sc.nextInt();
+                if(quantity<=0){
                     throw new IllegalArgumentException("Only Positive Numbers & no Letters Please!");
                 }
                 isOk = true;
@@ -22,6 +22,7 @@ public class ValidatePrice {
                 System.out.println(e.getMessage());
             }
         }
-        return price;
+
+        return quantity;
     }
 }

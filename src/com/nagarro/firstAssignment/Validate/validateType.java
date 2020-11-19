@@ -1,22 +1,22 @@
 package com.nagarro.firstAssignment.Validate;
 
-import com.nagarro.firstAssignment.Entity.Others;
 import com.nagarro.firstAssignment.constants.Constants;
 
 import java.util.Scanner;
 
-public class validateType {
-    public static String validateTheType() {
+public class ValidateType {
+    public static String validateType() {
+        String type;
         Scanner sc = new Scanner(System.in);
-        Others.setTypee(sc.nextLine());
+        type = sc.nextLine();
         while(true) {
-            if(Others.getTypee().equals(Constants.getRAW())||
-                    Others.getTypee().equals(Constants.getIMPORTED())||
-                    Others.getTypee().equals(Constants.getMANUFACTURED())) {
-                return Others.getTypee();
+            if(type.equals(Constants.RAW)||
+                    type.equals(Constants.IMPORTED)||
+                    type.equals(Constants.MANUFACTURED)) {
+                return type;
             }else {
                 System.out.println("Please enter the correct type");
-                Others.setTypee(sc.nextLine());
+                type = sc.nextLine();
             }
         }
     }
