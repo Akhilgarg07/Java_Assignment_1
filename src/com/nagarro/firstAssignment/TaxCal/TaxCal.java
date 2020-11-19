@@ -10,6 +10,8 @@ interface Tax{
 class Raw implements Tax{
     @Override
     public void CalculateTax(double price) {
+        Item.setTax(Constants.getRAWTAXPER()*(price/Constants.getTOTALPER()));
+//        return Item.getTax();
 
     }
 }
@@ -17,6 +19,9 @@ class Raw implements Tax{
 class Manufactured implements Tax{
     @Override
     public void CalculateTax(double price) {
+        Item.setTax(Constants.getRAWTAXPER()*(price/Constants.getTOTALPER()));
+        Item.setTax(Item.getTax()+Constants.getMANUFACTUREDTAXPER()*((price+Item.getTax())/Constants.getTOTALPER()));
+//        return Item.getTax();
 
     }
 }
@@ -24,13 +29,22 @@ class Manufactured implements Tax{
 class Imported implements Tax{
     @Override
     public void CalculateTax(double price){
-
+        Item.setTax(Constants.getIMPORTEDTAXPER()*(price/Constants.getTOTALPER()));
+        Item.setEffectiveCost(price+Item.getTax());
+        if(Item.getEffectiveCost()<=Constants.getTOTALCOSTIMP1()){
+            Item.setTax(Item.getTax()+Constants.getSURCHARGE1());
+        }else if(Item.getEffectiveCost()>Constants.getSURCHARGE1() && Item.getEffectiveCost()<=Constants.getTOTALCOSTIMP2()){
+            Item.setTax(Item.getTax()+Constants.getSURCHARGE2());
+        }else{
+            Item.setTax(Item.getTax()+Constants.getSURCHARGEPER()*(Item.getEffectiveCost()/Constants.getTOTALPER()));
+        }
+//        return Item.getTax();
     }
 }
 
 
-
-public class TaxCal {
+//
+//public class TaxCal {
 //    public static void enterDetails() {
 //        Scanner sc = new Scanner(System.in);
 //        System.out.print("Enter item name => ");
@@ -45,20 +59,20 @@ public class TaxCal {
 //
 //    }
 
-    public static String enterType() {
-        Scanner sc = new Scanner(System.in);
-        Others.setTypee(sc.nextLine());
-        while(true) {
-            if(Others.getTypee().equals(Constants.getRAW())||
-                    Others.getTypee().equals(Constants.getIMPORTED())||
-                    Others.getTypee().equals(Constants.getMANUFACTURED())) {
-                return Others.getTypee();
-            }else {
-                System.out.println("Please enter the correct type");
-                Others.setTypee(sc.nextLine());
-            }
-        }
-    }
+//    public static String enterType() {
+//        Scanner sc = new Scanner(System.in);
+//        Others.setTypee(sc.nextLine());
+//        while(true) {
+//            if(Others.getTypee().equals(Constants.getRAW())||
+//                    Others.getTypee().equals(Constants.getIMPORTED())||
+//                    Others.getTypee().equals(Constants.getMANUFACTURED())) {
+//                return Others.getTypee();
+//            }else {
+//                System.out.println("Please enter the correct type");
+//                Others.setTypee(sc.nextLine());
+//            }
+//        }
+//    }
 
 //    public static double getPrice() {
 //        while(!Constants.isOk()) {
@@ -75,4 +89,4 @@ public class TaxCal {
 //    }
 
 
-}
+//}

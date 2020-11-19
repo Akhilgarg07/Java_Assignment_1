@@ -5,7 +5,8 @@ import com.nagarro.firstAssignment.Entity.Item;
 import com.nagarro.firstAssignment.Entity.Others;
 import com.nagarro.firstAssignment.Validate.validatePrice;
 import com.nagarro.firstAssignment.constants.*;
-import com.nagarro.firstAssignment.TaxCal.TaxCal;
+import com.nagarro.firstAssignment.Validate.validateType;
+import com.nagarro.firstAssignment.TaxCal.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +23,9 @@ public class Main {
             System.out.println("Do you want to enter details of any other item (y/n):");
             Others.setOP(sc.nextLine());
         }
+//        if(Item.getType().equals(Constants.getRAW())){
+//
+//        }
         String s1 = String.format("Item name => %s \nPrice=> %.2f \nTax => %.2f \nOverall Effective Cost => %.2f",Item.getName(),Item.getPrice(),Item.getTax(),Item.getPrice()+Item.getTax());
         System.out.println(s1);
 
@@ -37,10 +41,10 @@ public class Main {
         System.out.print("Enter item name => ");
         Item.setName(sc.nextLine());
         System.out.print("Choose between the three \nRaw \nManufactured \nImported\n");
-        Item.setType(TaxCal.enterType());
+        Item.setType(validateType.validateTheType());
         System.out.print("Enter quantity => ");
         Item.setQuantity(sc.nextLine());
         System.out.print("Enter price => ");
-        Item.setPrice(validatePrice.validatePrice());
+        Item.setPrice(validatePrice.validateThePrice());
     }
 }

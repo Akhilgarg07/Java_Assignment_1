@@ -10,6 +10,7 @@ public class Item {
     private static String quantity="0";
     private static double price=0;
     private static double tax = 0;
+    private static double effectiveCost = 0;
 
     public static String getType() {
         return type;
@@ -49,5 +50,13 @@ public class Item {
 
     public static void setTax(double tax) {
         Item.tax = tax;
+    }
+
+    public static double getEffectiveCost() {
+        return effectiveCost;
+    }
+
+    public static void setEffectiveCost(double effectiveCost) {
+        Item.effectiveCost = effectiveCost;
     }
 }

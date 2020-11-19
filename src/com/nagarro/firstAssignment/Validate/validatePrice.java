@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class validatePrice {
-    public static double validatePrice() {
+    public static double validateThePrice() {
         while(!Others.isOk()) {
             try {
                 Scanner sc = new Scanner(System.in);
