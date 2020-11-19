@@ -3,6 +3,11 @@ package com.nagarro.firstAssignment.TaxCal;
 import com.nagarro.firstAssignment.constants.Constants;
 
 public class CalculateTax {
+	
+	private CalculateTax() {
+		
+	}
+	
     public static double calTax(String type,double price){
         Tax tax;
         if(type.equals(Constants.RAW)){

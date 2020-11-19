@@ -34,7 +34,6 @@ public class Main {
 
     private static Item getDetailsFromUser(){
         Item item = new Item();
-        Scanner sc = new Scanner(System.in);
         System.out.print("Enter item name => ");
         item.setName(ValidateName.validateName());
         System.out.print("Choose between the three \nRaw \nManufactured \nImported\n");
@@ -51,8 +50,7 @@ public class Main {
     private static void printOutput(List<Item> itemList){
         String result;
         for(int i=0;i<itemList.size();i++){
-            System.out.println(i);
-             result = String.format("%d \nItem name => %s \nPrice=> %.2f \nTax => %.2f \nOverall Effective Cost of an item => %.2f \nTotal cost => %.2f", i+1,itemList.get(i).getName(),itemList.get(i).getPrice(),itemList.get(i).getTax(),itemList.get(i).getPrice()+itemList.get(i).getTax(),itemList.get(i).getQuantity()*(itemList.get(i).getPrice()+itemList.get(i).getTax()));
+             result = String.format("%d %nItem name => %s %nPrice=> %.2f %nTax => %.2f %nOverall Effective Cost of an item => %.2f %nTotal cost => %.2f", i+1,itemList.get(i).getName(),itemList.get(i).getPrice(),itemList.get(i).getTax(),itemList.get(i).getPrice()+itemList.get(i).getTax(),itemList.get(i).getQuantity()*(itemList.get(i).getPrice()+itemList.get(i).getTax()));
              System.out.println(result);
             }
         }

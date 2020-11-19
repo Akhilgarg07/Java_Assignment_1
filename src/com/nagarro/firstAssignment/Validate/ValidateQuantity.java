@@ -4,6 +4,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ValidateQuantity {
+	
+	private ValidateQuantity() {
+		
+	}
+	
     public static int validateQuantity(){
         int quantity=0;
         boolean isOk = false;

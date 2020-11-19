@@ -5,6 +5,11 @@ import com.nagarro.firstAssignment.constants.Constants;
 import java.util.Scanner;
 
 public class ValidateType {
+	
+	private ValidateType() {
+		
+	}
+	
     public static String validateType() {
         String type;
         Scanner sc = new Scanner(System.in);

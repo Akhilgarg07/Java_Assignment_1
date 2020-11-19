@@ -1,7 +1,7 @@
 package com.nagarro.firstAssignment.constants;
 
 public final class Constants {
-    public Constants() {
+    private Constants() {
 
     }
 

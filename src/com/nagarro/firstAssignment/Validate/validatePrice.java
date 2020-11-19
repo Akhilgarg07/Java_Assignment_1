@@ -4,6 +4,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ValidatePrice {
+	
+	private ValidatePrice() {
+		
+	}
+	
     public static double validatePrice() {
         double price=0;
         boolean isOk = false;
