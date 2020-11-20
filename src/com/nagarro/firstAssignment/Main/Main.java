@@ -52,6 +52,7 @@ public class Main {
         for(int i=0;i<itemList.size();i++){
              result = String.format("%d %nItem name => %s %nPrice=> %.2f %nTax => %.2f %nOverall Effective Cost of an item => %.2f %nTotal cost => %.2f", i+1,itemList.get(i).getName(),itemList.get(i).getPrice(),itemList.get(i).getTax(),itemList.get(i).getPrice()+itemList.get(i).getTax(),itemList.get(i).getQuantity()*(itemList.get(i).getPrice()+itemList.get(i).getTax()));
              System.out.println(result);
+             System.out.println("**************************************************");
             }
         }
 
